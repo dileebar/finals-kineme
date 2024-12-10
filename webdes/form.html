@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Cocktails</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Fredoka One', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f7e8fc, #e0e6f5, #ffe5d9);
+            color: #333;
+            text-shadow: 2px 2px 5px rgba(140, 140, 255, 0.4);
+        }
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .logo h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            font-family: 'Pacifico', cursive;
+            background: linear-gradient(90deg, #6c72fc, #b4a8f7, #f1c1f0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .menu {
+            display: flex;
+            gap: 20px;
+        }
+        .menu a {
+            text-decoration: none;
+            color: #6c72fc;
+            font-size: 1.2rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .menu a:hover {
+            color: #f1c1f0;
+            transform: scale(1.1);
+        }
+        .main-banner {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #f8d9eb, #e6e1f9, #fcdfd9);
+        }
+        .main-banner h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #6c72fc, #b4a8f7, #f1c1f0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .main-banner p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        .cocktail-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px;
+        }
+        .cocktail-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cocktail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        .cocktail-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .cocktail-card h2 {
+            font-size: 1.8rem;
+            margin: 15px 0;
+            color: #6c72fc;
+        }
+        .cocktail-card a {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(90deg, #6c72fc, #b4a8f7);
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .cocktail-card a:hover {
+            background: linear-gradient(90deg, #b4a8f7, #f1c1f0);
+            transform: scale(1.1);
+        }
+        .contact-form {
+            padding: 40px 20px;
+            margin: 40px auto;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .contact-form h3 {
+            font-size: 2rem;
+            color: #6c72fc;
+            background: linear-gradient(90deg, #6c72fc, #b4a8f7);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .contact-form label {
+            font-size: 1rem;
+            color: #333;
+        }
+        .contact-form input, .contact-form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 100%;
+        }
+        .contact-form button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            background: #6c72fc;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .contact-form button:hover {
+            background: #b4a8f7;
+            transform: scale(1.05);
+        }
+        footer {
+            background: linear-gradient(90deg, #6c72fc, #b4a8f7);
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            font-family: 'Pacifico', cursive;
+        }
+        footer a {
+            color: #f5f7ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://via.placeholder.com/50" alt="Logo">
+            <h1>Anime Cocktails</h1>
+        </div>
+        <nav class="menu">
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="main-banner">
+        <h1>Welcome to Anime Cocktails</h1>
+        <p>Discover magical drinks inspired by the world of anime. Find your favorite and indulge in the fantasy!</p>
+    </div>
+
+    <div class="cocktail-list">
+        <div class="cocktail-card">
+            <img src="https://via.placeholder.com/300" alt="Sunrise Bliss">
+            <h2>Sunrise Bliss</h2>
+            <a href="sunrise-bliss.html">Explore Recipe</a>
+        </div>
+        <div class="cocktail-card">
+            <img src="https://via.placeholder.com/300" alt="Starry Delight">
+            <h2>Starry Delight</h2>
+            <a href="starry-delight.html">Explore Recipe</a>
+        </div>
+        <div class="cocktail-card">
+            <img src="https://via.placeholder.com/300" alt="Twilight Whisper">
+            <h2>Twilight Whisper</h2>
+            <a href="twilight-whisper.html">Explore Recipe</a>
+        </div>
+        <div class="cocktail-card">
+            <img src="https://via.placeholder.com/300" alt="Moonlit Melody">
+            <h2>Moonlit Melody</h2>
+            <a href="moonlit-melody.html">Explore Recipe</a>
+        </div>
+    </div>
+
+    <div id="contact" class="contact-form">
+        <h3>Contact Us</h3>
+        <form action="/submit_form" method="POST">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your email" required>
+            
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Your message" rows="5" required></textarea>
+            
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>© 2024 Anime Cocktails | Designed with love</p>
+    </footer>
+</body>
+</html>
